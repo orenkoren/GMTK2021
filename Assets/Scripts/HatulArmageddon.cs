@@ -5,6 +5,7 @@ public class HatulArmageddon : MonoBehaviour
 {
     private NavMeshAgent _navMeshAgent;
     public LayerMask grandmaLayer;
+    private int grandmasAmount = 0; // POS hack
     void Start()
     {
 
@@ -16,16 +17,24 @@ public class HatulArmageddon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit[] grandmas = Physics.SphereCastAll(transform.position, 150, transform.up, 0.1f, grandmaLayer, QueryTriggerInteraction.UseGlobal);
+        RaycastHit[] grandmas = Physics.SphereCastAll(transform.position, 500, transform.up, 0.1f, grandmaLayer, QueryTriggerInteraction.UseGlobal);
         float minGrandmaDistance = -1;
         GameObject minGrandma = null;
+        int previousAmount = grandmasAmount;
+        grandmasAmount = grandmas.Length;
         foreach (var grandma in grandmas)
         {
             NavMeshPath navPath = new NavMeshPath();
             _navMeshAgent.CalculatePath(grandma.transform.position, navPath);
-            if (_navMeshAgent.remainingDistance < minGrandmaDistance || minGrandmaDistance == -1)
+            Vector3 current = transform.position;
+            var distance = 0f; // _navMeshAgent.remainingDistance
+            foreach (var node in navPath.corners)
             {
-                minGrandmaDistance = _navMeshAgent.remainingDistance;
+                distance += Vector3.Distance(current, node);
+            }
+            if (distance < minGrandmaDistance || minGrandmaDistance == -1)
+            {
+                minGrandmaDistance = distance;
                 minGrandma = grandma.collider.gameObject;
             }
         }
@@ -34,8 +43,7 @@ public class HatulArmageddon : MonoBehaviour
         {
             _navMeshAgent.SetDestination(minGrandma.transform.position);
         }
-
-        if (minGrandmaDistance > 0 && minGrandmaDistance < 0.5)
+        if (previousAmount <= grandmasAmount && minGrandmaDistance < 4)
         {
             Destroy(minGrandma);
         }
