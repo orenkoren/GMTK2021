@@ -41,16 +41,22 @@ public class GridLogic : MonoBehaviour
 
     public Vector3 GetClosestPositionOnGrid(Vector3 pos)
     {
+        Vector3 closestDistanceToNav = Vector3.zero;
+        float lowestMagnitude = 500;
         for (int x = 0; x < gridPositions.GetLength(0); x++)
         {
             for (int z = 0; z < gridPositions.GetLength(1); z++)
             {
-                if ((gridPositions[x, z] - pos).magnitude < 30 && (gridPositions[x, z] - pos).magnitude > 0.5f &&
+                var magnitude = (gridPositions[x, z] - pos).magnitude;
+                if (magnitude < lowestMagnitude && (gridPositions[x, z] - pos).magnitude > 7f &&
                     NavMesh.SamplePosition(pos, out NavMeshHit hit, 0.01f, NavMesh.AllAreas) == false)
-                    return gridPositions[x, z];
+                {
+                    closestDistanceToNav = gridPositions[x, z];
+                    lowestMagnitude = magnitude;
+                }
             }
         }
-        return new Vector3(0, 0, 0);
+        return closestDistanceToNav;
     }
 
     public static void PlaceOnGrid(int x, int z)
