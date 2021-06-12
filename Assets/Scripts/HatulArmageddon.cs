@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class HatulArmageddon : MonoBehaviour
 {
     private NavMeshAgent _navMeshAgent;
+    public Transform destination;
     public LayerMask grandmaLayer;
     private int grandmasAmount = 0; // POS hack
     void Start()
@@ -12,9 +13,6 @@ public class HatulArmageddon : MonoBehaviour
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
     }
 
-
-
-    // Update is called once per frame
     void Update()
     {
         RaycastHit[] grandmas = Physics.SphereCastAll(transform.position, 500, transform.up, 0.1f, grandmaLayer, QueryTriggerInteraction.UseGlobal);
@@ -22,6 +20,8 @@ public class HatulArmageddon : MonoBehaviour
         GameObject minGrandma = null;
         int previousAmount = grandmasAmount;
         grandmasAmount = grandmas.Length;
+        if (grandmas.Length == 0)
+            _navMeshAgent.SetDestination(destination.position);
         foreach (var grandma in grandmas)
         {
             NavMeshPath navPath = new NavMeshPath();

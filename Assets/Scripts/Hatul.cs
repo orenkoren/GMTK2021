@@ -19,7 +19,7 @@ public class Hatul : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.SqrMagnitude(_destination.transform.position - transform.position) < 3)
+        if ((_destination.transform.position - transform.position).magnitude < 5)
         {
             Instantiate(_hatulArmageddon, transform.position, transform.rotation);
             Destroy(gameObject);
