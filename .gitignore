@@ -36,3 +36,4 @@ Thumbs.db
 *.log
 .vscode/*
 UserSettings/EditorUserSettings.asset
+.vsconfig
