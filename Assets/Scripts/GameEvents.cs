@@ -17,6 +17,18 @@ public class GameEvents : MonoBehaviour
     public static void FireSelectionCleared(object sender, int id) =>
                                             SelectionClearedListeners?.Invoke(sender, id);
 
+    public static EventHandler<string> WaveStartedListeners;
+    public static void FireWaveStarted(object sender, string placeholder) =>
+                                        WaveStartedListeners?.Invoke(sender, placeholder);
+
+    public static EventHandler<string> WaveFinishedListeners;
+    public static void FireWaveFinished(object sender, string placeholder) =>
+                                        WaveFinishedListeners?.Invoke(sender, placeholder);
+
+    public static EventHandler<string> WavePhasedListeners;
+    public static void FireWavePhased(object sender, string placeholder) =>
+                                        WavePhasedListeners?.Invoke(sender, placeholder);
+
     public static GameObject FirstSelectedObject;
     public static GameObject SecondSelectedObject;
 

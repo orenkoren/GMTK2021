@@ -9,6 +9,11 @@ public class Waves : MonoBehaviour
     private int currentWave = 0;
     public float currentTimer = 0;
 
+    private void Start()
+    {
+        GameEvents.FireWaveFinished(this, "");
+    }
+
     private void Update()
     {
         currentTimer += Time.deltaTime;
@@ -18,6 +23,7 @@ public class Waves : MonoBehaviour
 
     private void SpawnNextWave()
     {
+        GameEvents.FireWaveStarted(this, "");
         currentTimer = 0;
         foreach (var member in waves[currentWave].members)
         {
