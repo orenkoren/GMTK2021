@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+public enum ChoonkType {
+    BIG, 
+    SPREAD
+}
+
 public class Tower : MonoBehaviour
 {
-
     private List<Transform> targets = new List<Transform>();
 
     [Header("Attributes")]
     public float range = 15f;
     public float fireRate = 1f;
     public int maxTargets = 1;
+    public ChoonkType type = ChoonkType.SPREAD;
     private float fireCountdown = 0f;
 
 
@@ -51,6 +56,11 @@ public class Tower : MonoBehaviour
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         List<GameObject> enemiesList = enemies.ToList();
+
+        enemiesList.RemoveAll(enemy => {
+            Hatul enemyComponent = enemy.GetComponent<Hatul>();
+            return enemyComponent.GetChoonkType() != this.type;
+        });
 
         enemiesList.Sort((a, b) => (int)GetDistanceToEnemy(a.transform) - (int)GetDistanceToEnemy(b.transform));
 
