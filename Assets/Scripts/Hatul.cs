@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MeshMove : MonoBehaviour
+public class Hatul : MonoBehaviour
 {
     [SerializeField] private Transform _destination;
     [SerializeField] private GameObject _hatulArmageddon;
