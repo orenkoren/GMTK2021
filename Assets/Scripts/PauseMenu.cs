@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
 
     public GameObject ui;
+    public AudioMixer audioMixer;
     public static bool paused = false;
     void Start()
     {
@@ -44,6 +46,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ChangeVolume(float value)
     {
-        // AudioListener.volume = value;
+        print(value);
+        audioMixer.SetFloat("volume", value);
     }
 }
