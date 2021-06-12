@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class SplitManager : MonoBehaviour
 {
+    public GridLogic grid;
     public List<SplitData> splits;
-    public Vector3 splitOffset;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class SplitManager : MonoBehaviour
                 Destroy(senderObj);
                 Instantiate(split.splitsInto, senderObj.transform.position, senderObj.transform.rotation);
                 Instantiate(split.splitsInto,
-                    senderObj.transform.position + splitOffset, senderObj.transform.rotation);
+                    grid.GetClosestPositionOnGrid(senderObj.transform.position), senderObj.transform.rotation);
             }
         }
     }

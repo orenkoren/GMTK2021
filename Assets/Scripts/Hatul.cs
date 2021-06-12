@@ -26,11 +26,13 @@ public class Hatul : MonoBehaviour
         }
     }
 
-    public void SetIsTargeted(bool targeted) {
+    public void SetIsTargeted(bool targeted)
+    {
         this.isTargeted = targeted;
     }
 
-    public bool GetIsTargeted() {
+    public bool GetIsTargeted()
+    {
         return this.isTargeted;
     }
 }
