@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellSize: 10
   startPos: {fileID: 0}
+  placeholder: {fileID: 0}
   spanUpon: {fileID: 0}
 --- !u!114 &7497635283406833159
 MonoBehaviour:

@@ -9,6 +9,7 @@ public class Hatul : MonoBehaviour
     [SerializeField] private GameObject _hatulArmageddon;
     private NavMeshAgent _navMeshAgent;
     private bool isTargeted;
+    private ChoonkType type = ChoonkType.BIG;
     void Start()
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
@@ -34,5 +35,15 @@ public class Hatul : MonoBehaviour
     public bool GetIsTargeted()
     {
         return this.isTargeted;
+    }
+
+    public void SetChoonkType(ChoonkType type)
+    {
+        this.type = type;
+    }
+
+    public ChoonkType GetChoonkType()
+    {
+        return this.type;
     }
 }
