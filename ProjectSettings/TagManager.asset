@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Grandma
+  - Mega
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Grandmas
   - Water
   - UI
   - 
