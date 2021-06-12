@@ -152,9 +152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2621013ce2309f408a90c6425f39d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
+  grandmaSpacing: 3
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  grandmaLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  grandma: {fileID: 5964221609507755365, guid: d1f02ce5939e22042a4a6b22036b3a77, type: 3}
 --- !u!4 &63896553
 Transform:
   m_ObjectHideFlags: 0
