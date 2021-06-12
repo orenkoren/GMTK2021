@@ -15,6 +15,8 @@ public class Tower : MonoBehaviour
     [Header("Unity Setup")]
     public float turnSpeed = 10f;
     public string enemyTag = "Enemy";
+    public GameObject bulletPrefab;
+    public Transform firePoint;
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -35,7 +37,9 @@ public class Tower : MonoBehaviour
 
         if(nearestEnemy != null && shortestDistance <= range) {
             target = nearestEnemy.transform;
-        } 
+        } else {
+            target = null;
+        }
     }
 
     // Update is called once per frame
@@ -59,7 +63,12 @@ public class Tower : MonoBehaviour
     }
 
     private void Shoot() {
-        Debug.Log("shoot!");
+        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+        if(bullet != null) {
+            bullet.Seek(target);
+        }
     }
 
     private void OnDrawGizmos() {
