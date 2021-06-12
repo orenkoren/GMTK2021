@@ -60,10 +60,6 @@ public class GrandmaSpawner : MonoBehaviour
 
     private Vector3 GetMousePosition()
     {
-        // PointerEventData pointerEventData = new PointerEventData(_eventSystem);
-        // pointerEventData.position = Input.mousePosition;
-        // List<RaycastResult> results = new List<RaycastResult>();
-        // _graphicRaycaster.Raycast(pointerEventData, results);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit raycastHit = new RaycastHit();
 
