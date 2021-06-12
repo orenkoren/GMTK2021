@@ -47,15 +47,15 @@ MonoBehaviour:
   waves:
   - intervalBeforeWave: 5
     members:
-    - attacker: {fileID: 5964221609507755365, guid: d1f02ce5939e22042a4a6b22036b3a77, type: 3}
+    - attacker: {fileID: 2476805360224427469, guid: e08398520b6bcd240b01e2a5bb13b51f, type: 3}
       startPos: {fileID: 0}
       amount: 5
   - intervalBeforeWave: 10
     members:
-    - attacker: {fileID: 5964221609507755365, guid: d1f02ce5939e22042a4a6b22036b3a77, type: 3}
+    - attacker: {fileID: 2476805360224427469, guid: e08398520b6bcd240b01e2a5bb13b51f, type: 3}
       startPos: {fileID: 0}
       amount: 10
-    - attacker: {fileID: 5964221609507755365, guid: d1f02ce5939e22042a4a6b22036b3a77, type: 3}
+    - attacker: {fileID: 2476805360224427469, guid: e08398520b6bcd240b01e2a5bb13b51f, type: 3}
       startPos: {fileID: 0}
       amount: 5
   currentTimer: 0
