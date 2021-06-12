@@ -8,14 +8,13 @@ public class Hatul : MonoBehaviour
     [SerializeField] private Transform _destination;
     [SerializeField] private GameObject _hatulArmageddon;
     private NavMeshAgent _navMeshAgent;
+    private bool isTargeted;
     void Start()
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         Vector3 targetVector = _destination.transform.position;
         _navMeshAgent.SetDestination(targetVector);
     }
-
-
 
     // Update is called once per frame
     void Update()
@@ -25,5 +24,13 @@ public class Hatul : MonoBehaviour
             Instantiate(_hatulArmageddon, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+    }
+
+    public void SetIsTargeted(bool targeted) {
+        this.isTargeted = targeted;
+    }
+
+    public bool GetIsTargeted() {
+        return this.isTargeted;
     }
 }

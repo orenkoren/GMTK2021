@@ -23,20 +23,40 @@ public class Tower : MonoBehaviour
     }
 
     void UpdateTarget () {
+
+        if(target != null) {
+            float distanceToEnemy = Vector3.Distance(transform.position, target.position);
+            if(distanceToEnemy > range) {
+                Hatul previouseHatul = target.GetComponent<Hatul>();
+                previouseHatul.SetIsTargeted(false);
+                target = null;
+            }
+        }
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
         foreach(GameObject enemy in enemies) {
             float distanceToEnemy = Vector3.Distance(transform.position,enemy.transform.position);
-            if(distanceToEnemy < shortestDistance) {
+            Hatul hatul = enemy.GetComponent<Hatul>();
+
+            if(distanceToEnemy < shortestDistance && !hatul.GetIsTargeted()) {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
             }
         }
 
         if(nearestEnemy != null && shortestDistance <= range) {
+            if(target != null) {
+                Hatul previouseHatul = target.GetComponent<Hatul>();
+                previouseHatul.SetIsTargeted(false);
+            }
+
             target = nearestEnemy.transform;
+            Hatul currentHatul = target.GetComponent<Hatul>();
+            currentHatul.SetIsTargeted(true);
+
         } else {
             target = null;
         }
