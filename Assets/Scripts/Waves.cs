@@ -24,7 +24,7 @@ public class Waves : MonoBehaviour
             for (int i = 0; i < member.amount; i++)
             {
                 var e = Instantiate(member.attacker, member.startPos.position, member.startPos.rotation);
-                Destroy(e, 5);
+                //Destroy(e, 5);
             }
         }
         currentWave++;
