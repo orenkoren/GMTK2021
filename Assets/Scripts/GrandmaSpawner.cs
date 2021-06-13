@@ -1,17 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 public class GrandmaSpawner : MonoBehaviour
 {
     [SerializeField] private float grandmaSpacing = 3;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject ground;
     [SerializeField] private LayerMask grandmaLayer;
     [SerializeField] private GameObject grandmaIndicator;
+    [SerializeField] private GameObject failIndicator;
     [SerializeField] private EventSystem eventSystem;
+    [SerializeField] private GrandmaInventory inventory;
 
     private GameObject indicatorInstance;
     private GraphicRaycaster graphicRaycaster;
@@ -26,7 +27,10 @@ public class GrandmaSpawner : MonoBehaviour
         {
             if (indicatorInstance == null || repositionIndicator())
             {
-                instantiateIndicator();
+                if (inventory.currentInventory > 0)
+                    instantiateIndicator();
+                else
+                    InstantiateFailure();
             }
         }
     }
@@ -37,7 +41,6 @@ public class GrandmaSpawner : MonoBehaviour
         ped.position = Input.mousePosition;
         List<RaycastResult> results = new List<RaycastResult>();
         graphicRaycaster.Raycast(ped, results);
-        print(results.ToArray());
         if (results.ToArray().Length == 0)
         {
             Destroy(indicatorInstance);
@@ -58,14 +61,24 @@ public class GrandmaSpawner : MonoBehaviour
         }
     }
 
+    private void InstantiateFailure()
+    {
+        Vector3 mousePosition = GetMousePosition();
+            indicatorInstance = Instantiate(failIndicator, mousePosition, Quaternion.identity);
+            graphicRaycaster = indicatorInstance.GetComponent<GraphicRaycaster>();
+    }
+
     private Vector3 GetMousePosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit raycastHit = new RaycastHit();
 
-        if (Physics.Raycast(ray, out raycastHit, 999f, groundLayer))
+        if (Physics.Raycast(ray, out raycastHit, 999f))
         {
-            return raycastHit.point;
+            if (raycastHit.collider.gameObject.name == ground.name)
+                return raycastHit.point;
+            else
+                return Vector3.zero;
         }
         else
         {

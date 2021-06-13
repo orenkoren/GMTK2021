@@ -6,29 +6,48 @@ using UnityEngine;
 public class Waves : MonoBehaviour
 {
     public List<WaveData> waves;
-    private int currentWave = 0;
+    public int currentWave = 0;
     public float currentTimer = 0;
+    public float countdownToNextWave;
+    public float timeBetweenSpawns;
+
+    private void Start()
+    {
+        GameEvents.FireWaveFinished(this, "");
+    }
 
     private void Update()
     {
         currentTimer += Time.deltaTime;
-        if (currentWave < waves.Count && currentTimer >= waves[currentWave].intervalBeforeWave)
-            SpawnNextWave();
+        if (currentWave < waves.Count)
+        {
+            countdownToNextWave = waves[currentWave].intervalBeforeWave - currentTimer;
+
+            if (currentTimer >= waves[currentWave].intervalBeforeWave)
+                StartCoroutine(SpawnNextWave());
+        }
     }
 
-    private void SpawnNextWave()
+    public bool IsLastWave()
+    {
+        return currentWave == waves.Count;
+    }
+
+    private IEnumerator SpawnNextWave()
     {
         currentTimer = 0;
-        foreach (var member in waves[currentWave].members)
+        var waveToSpawn = currentWave;
+        if (currentWave < waves.Count)
+            currentWave++;
+        GameEvents.FireWaveStarted(this, "");
+        foreach (var member in waves[waveToSpawn].members)
         {
             for (int i = 0; i < member.amount; i++)
             {
-                var e = Instantiate(member.attacker, member.startPos.position, member.startPos.rotation);
-                //Destroy(e, 5);
+                Instantiate(member.attacker, member.startPos.position, member.startPos.rotation);
+                yield return new WaitForSeconds(timeBetweenSpawns);
             }
         }
-        currentWave++;
-
     }
 }
 

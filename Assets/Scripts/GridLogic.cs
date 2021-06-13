@@ -48,7 +48,7 @@ public class GridLogic : MonoBehaviour
             for (int z = 0; z < gridPositions.GetLength(1); z++)
             {
                 var magnitude = (gridPositions[x, z] - pos).magnitude;
-                if (magnitude < lowestMagnitude && (gridPositions[x, z] - pos).magnitude > 7f &&
+                if (magnitude < lowestMagnitude && (gridPositions[x, z] - pos).magnitude > 15f &&
                     NavMesh.SamplePosition(pos, out NavMeshHit hit, 0.01f, NavMesh.AllAreas) == false)
                 {
                     closestDistanceToNav = gridPositions[x, z];

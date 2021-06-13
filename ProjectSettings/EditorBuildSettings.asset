@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Oren.unity
+    guid: c31cd0049d6fb35429932502e28a6aa0
+  - enabled: 1
+    path: Assets/Scenes/Oren2.unity
+    guid: f6dc9db624441cc4e81f1c805eedaf40
   m_configObjects: {}

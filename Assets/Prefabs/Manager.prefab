@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 7497635283406833177}
   - component: {fileID: 7497635283406833158}
   - component: {fileID: 7497635283406833159}
+  - component: {fileID: 2053856903}
+  - component: {fileID: 137767688}
+  - component: {fileID: 2674666479935662056}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -64,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   merges:
   - coupleOfTag: Grandma
-    result: {fileID: 5141373873043659879, guid: abfd88f4ceaa2564386a2fb93a2a4ce2, type: 3}
+    result: {fileID: 2303178014460182965, guid: 80ef53f136b185d4fbc52294717b8081, type: 3}
 --- !u!114 &7497635283406833177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +83,7 @@ MonoBehaviour:
   grid: {fileID: 7497635283406833158}
   splits:
   - parentTag: Mega
-    splitsInto: {fileID: 5182884809397055730, guid: 989669495a6843e4c8c47d0e8ec61ce4, type: 3}
+    splitsInto: {fileID: 8560773867498758177, guid: 795f33f1bc3d44845bdb3374519482d1, type: 3}
 --- !u!114 &7497635283406833158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellSize: 10
   startPos: {fileID: 0}
-  placeholder: {fileID: 0}
   spanUpon: {fileID: 0}
 --- !u!114 &7497635283406833159
 MonoBehaviour:
@@ -109,3 +111,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9255f1537a4c30a4bb3627b4b0d1f7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2053856903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497635283406833181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d042191572b4c641921a5a49841355a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingInventory: 1
+  currentInventory: 1
+--- !u!114 &137767688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497635283406833181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36697660789c9540963dc2128ef0633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTags:
+  - Enemy
+  - Armageddon
+  grandmaTags:
+  - Grandma
+  - Mega
+  waveSpawner: {fileID: 0}
+--- !u!114 &2674666479935662056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497635283406833181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92f02b46364c3642856823a1e78d448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catsSaved: 0

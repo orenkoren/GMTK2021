@@ -28,6 +28,7 @@ public class MergeManager : MonoBehaviour
                             GameEvents.SecondSelectedObject.transform.position,
                             GameEvents.SecondSelectedObject.transform.rotation);
                         GameEvents.FireSelectionCleared(this, 0);
+                        GameEvents.FireMerge(null, "");
                     }
                 }
             }

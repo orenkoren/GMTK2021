@@ -7,9 +7,9 @@ public class Hatul : MonoBehaviour
 {
     [SerializeField] private Transform _destination;
     [SerializeField] private GameObject _hatulArmageddon;
+    [SerializeField] private ChoonkType type;
     private NavMeshAgent _navMeshAgent;
     private bool isTargeted;
-    private ChoonkType type = ChoonkType.BIG;
     void Start()
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
@@ -20,7 +20,8 @@ public class Hatul : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.SqrMagnitude(_destination.transform.position - transform.position) < 3)
+        var dist = _destination.transform.position - transform.position;
+        if (new Vector3(dist.x, 0, dist.z).magnitude < 20f)
         {
             Instantiate(_hatulArmageddon, transform.position, transform.rotation);
             Destroy(gameObject);

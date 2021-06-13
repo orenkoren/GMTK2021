@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum ChoonkType {
     BIG, 
-    SPREAD
+    SMALL
 }
 
 public class Tower : MonoBehaviour
@@ -16,7 +16,7 @@ public class Tower : MonoBehaviour
     public float range = 15f;
     public float fireRate = 1f;
     public int maxTargets = 1;
-    public ChoonkType type = ChoonkType.SPREAD;
+    public ChoonkType type = ChoonkType.SMALL;
     private float fireCountdown = 0f;
 
 
@@ -90,7 +90,7 @@ public class Tower : MonoBehaviour
         Vector3 dir = nearestEnemy.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        transform.rotation = Quaternion.Euler(90f, 0f, rotation.z);
 
         if(fireCountdown <= 0f) {
             Shoot();
@@ -103,7 +103,7 @@ public class Tower : MonoBehaviour
     private void Shoot() {       
 
         this.targets.ForEach(target => {
-            GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, bulletPrefab.transform.rotation);
             Bullet bullet = bulletGO.GetComponent<Bullet>();
 
             if(bullet != null) {

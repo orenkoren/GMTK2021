@@ -12,29 +12,32 @@ public class HatulArmageddon : MonoBehaviour
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
     }
 
-
-
-    // Update is called once per frame
     void Update()
     {
         RaycastHit[] grandmas = Physics.SphereCastAll(transform.position, 500, transform.up, 0.1f, grandmaLayer, QueryTriggerInteraction.UseGlobal);
-        float minGrandmaDistance = -1;
+        float minGrandmaDistance = 5000;
         GameObject minGrandma = null;
         int previousAmount = grandmasAmount;
         grandmasAmount = grandmas.Length;
         foreach (var grandma in grandmas)
         {
-            NavMeshPath navPath = new NavMeshPath();
-            _navMeshAgent.CalculatePath(grandma.transform.position, navPath);
-            Vector3 current = transform.position;
-            var distance = 0f; // _navMeshAgent.remainingDistance
-            foreach (var node in navPath.corners)
+            //NavMeshPath navPath = new NavMeshPath();
+            //_navMeshAgent.CalculatePath(grandma.transform.position, navPath);
+            //Vector3 current = transform.position;
+            //var distance = 0f; // _navMeshAgent.remainingDistance
+            //foreach (var node in navPath.corners)
+            //{
+            //    distance += Vector3.Distance(current, node);
+            //}
+            //if (distance < minGrandmaDistance || minGrandmaDistance == -1)
+            //{
+            //    minGrandmaDistance = distance;
+            //    minGrandma = grandma.collider.gameObject;
+            //}
+            var dist = Vector3.Distance(grandma.point, transform.position);
+            if (dist < minGrandmaDistance)
             {
-                distance += Vector3.Distance(current, node);
-            }
-            if (distance < minGrandmaDistance || minGrandmaDistance == -1)
-            {
-                minGrandmaDistance = distance;
+                minGrandmaDistance = dist;
                 minGrandma = grandma.collider.gameObject;
             }
         }
@@ -43,9 +46,16 @@ public class HatulArmageddon : MonoBehaviour
         {
             _navMeshAgent.SetDestination(minGrandma.transform.position);
         }
-        if (previousAmount <= grandmasAmount && minGrandmaDistance < 4)
+        //if (previousAmount <= grandmasAmount && minGrandmaDistance < 4)
+        //{
+        //    Destroy(minGrandma);
+        //}
+        var distToTarget = _navMeshAgent.destination - transform.position;
+        if (new Vector3(distToTarget.x, 0, distToTarget.z).magnitude < 20f)
         {
             Destroy(minGrandma);
         }
+        if (grandmas.Length == 0)
+            Destroy(gameObject);
     }
 }
