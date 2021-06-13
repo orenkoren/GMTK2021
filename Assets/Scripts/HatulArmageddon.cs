@@ -4,7 +4,6 @@ using UnityEngine.AI;
 public class HatulArmageddon : MonoBehaviour
 {
     private NavMeshAgent _navMeshAgent;
-    public Transform destination;
     public LayerMask grandmaLayer;
     private int grandmasAmount = 0; // POS hack
     void Start()
@@ -20,8 +19,6 @@ public class HatulArmageddon : MonoBehaviour
         GameObject minGrandma = null;
         int previousAmount = grandmasAmount;
         grandmasAmount = grandmas.Length;
-        if (grandmas.Length == 0)
-            _navMeshAgent.SetDestination(destination.position);
         foreach (var grandma in grandmas)
         {
             //NavMeshPath navPath = new NavMeshPath();
@@ -58,5 +55,7 @@ public class HatulArmageddon : MonoBehaviour
             print(_navMeshAgent.remainingDistance);
             Destroy(minGrandma);
         }
+        if (grandmas.Length == 0)
+            Destroy(gameObject);
     }
 }

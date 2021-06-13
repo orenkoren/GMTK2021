@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4607386069251478524}
   m_Layer: 0
   m_Name: HatulArmageddon
-  m_TagString: Untagged
+  m_TagString: Armageddon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,7 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa15592057b2b404587f5c3412d96d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 7368663987106453457, guid: b369888076ec30a4db1fc95268b0e78a, type: 3}
   grandmaLayer:
     serializedVersion: 2
     m_Bits: 64

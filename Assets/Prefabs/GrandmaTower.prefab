@@ -164,7 +164,7 @@ MonoBehaviour:
   type: 1
   turnSpeed: 10
   enemyTag: Enemy
-  bulletPrefab: {fileID: 415797755779897637, guid: 51e33249a913e4742b15cb601aa0dc08, type: 3}
+  bulletPrefab: {fileID: 415797755779897637, guid: c7678ad5bf31bc84a933a9edc6344fde, type: 3}
   firePoint: {fileID: 8560773867926684819}
 --- !u!114 &6112769663259329421
 MonoBehaviour:

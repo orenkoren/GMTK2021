@@ -33,6 +33,10 @@ public class GameEvents : MonoBehaviour
     public static void FireGrandmaPlaced(object sender, string placeholder) =>
                                         GrandmaPlacedListeners?.Invoke(sender, placeholder);
 
+    public static EventHandler<string> LevelFinishedListeners;
+    public static void FireLevelFinished(object sender, string placeholder) =>
+                                        LevelFinishedListeners?.Invoke(sender, placeholder);
+
     public static GameObject FirstSelectedObject;
     public static GameObject SecondSelectedObject;
 

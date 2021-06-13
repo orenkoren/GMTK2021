@@ -1,13 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Waves : MonoBehaviour
 {
     public List<WaveData> waves;
-    private int currentWave = 0;
+    public int currentWave = 0;
     public float currentTimer = 0;
+    public float countdownToNextWave;
 
     private void Start()
     {
@@ -17,13 +17,22 @@ public class Waves : MonoBehaviour
     private void Update()
     {
         currentTimer += Time.deltaTime;
-        if (currentWave < waves.Count && currentTimer >= waves[currentWave].intervalBeforeWave)
-            SpawnNextWave();
+        if (currentWave < waves.Count)
+        {
+            countdownToNextWave = waves[currentWave].intervalBeforeWave - currentTimer;
+
+            if (currentTimer >= waves[currentWave].intervalBeforeWave)
+                SpawnNextWave();
+        }
+    }
+
+    public bool IsLastWave()
+    {
+        return currentWave == waves.Count;
     }
 
     private void SpawnNextWave()
     {
-        GameEvents.FireWaveStarted(this, "");
         currentTimer = 0;
         foreach (var member in waves[currentWave].members)
         {
@@ -33,7 +42,9 @@ public class Waves : MonoBehaviour
                 //Destroy(e, 5);
             }
         }
-        currentWave++;
+        if (currentWave < waves.Count)
+            currentWave++;
+        GameEvents.FireWaveStarted(this, "");
 
     }
 }

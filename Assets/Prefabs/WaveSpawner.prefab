@@ -51,8 +51,8 @@ MonoBehaviour:
     members:
     - attacker: {fileID: 2476805360224427469, guid: e08398520b6bcd240b01e2a5bb13b51f, type: 3}
       startPos: {fileID: 0}
-      amount: 20
-  - intervalBeforeWave: 10
+      amount: 8
+  - intervalBeforeWave: 100
     members:
     - attacker: {fileID: 2476805360224427469, guid: e08398520b6bcd240b01e2a5bb13b51f, type: 3}
       startPos: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
       startPos: {fileID: 0}
       amount: 5
   currentTimer: 0
+  countdownToNextWave: 0
 --- !u!114 &1077591641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,11 +97,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6752680044912107340}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 13033acbd61c0a74286829c15e6115ea, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.36
   m_Pitch: 0.85
   Loop: 1
