@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -45,5 +46,13 @@ public class PauseMenu : MonoBehaviour
     public void ChangeVolume(float value)
     {
         // AudioListener.volume = value;
+    }
+
+    public void Restart() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Quit() {
+        Application.Quit();
     }
 }
