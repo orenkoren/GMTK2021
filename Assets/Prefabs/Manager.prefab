@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2053856903}
   - component: {fileID: 137767688}
   - component: {fileID: 2674666479935662056}
+  - component: {fileID: 823547127}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -98,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellSize: 10
   startPos: {fileID: 0}
+  spacing: 20
   spanUpon: {fileID: 0}
 --- !u!114 &7497635283406833159
 MonoBehaviour:
@@ -157,3 +159,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catsSaved: 0
+--- !u!114 &823547127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497635283406833181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e6b5584a098484e8fade575273814b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

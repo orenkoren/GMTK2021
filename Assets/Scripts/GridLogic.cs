@@ -6,6 +6,7 @@ public class GridLogic : MonoBehaviour
     public int cellSize;
     public Transform startPos;
     //public GameObject placeholder;
+    [SerializeField] private float spacing;
     public SpriteRenderer spanUpon;
     public int[,] gridArray;
     private static bool[,] availableSpots;
@@ -48,7 +49,7 @@ public class GridLogic : MonoBehaviour
             for (int z = 0; z < gridPositions.GetLength(1); z++)
             {
                 var magnitude = (gridPositions[x, z] - pos).magnitude;
-                if (magnitude < lowestMagnitude && (gridPositions[x, z] - pos).magnitude > 15f &&
+                if (magnitude < lowestMagnitude && (gridPositions[x, z] - pos).magnitude > spacing &&
                     NavMesh.SamplePosition(pos, out NavMeshHit hit, 0.01f, NavMesh.AllAreas) == false)
                 {
                     closestDistanceToNav = gridPositions[x, z];
