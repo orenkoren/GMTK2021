@@ -878,8 +878,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2231534665499674829}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: changeVolume
-        m_Mode: 1
+        m_MethodName: ChangeVolume
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

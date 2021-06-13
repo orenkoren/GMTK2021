@@ -54,6 +54,7 @@ public class HatulArmageddon : MonoBehaviour
         if (new Vector3(distToTarget.x, 0, distToTarget.z).magnitude < 20f)
         {
             Destroy(minGrandma);
+            Destroy(gameObject);
         }
         if (grandmas.Length == 0)
             Destroy(gameObject);

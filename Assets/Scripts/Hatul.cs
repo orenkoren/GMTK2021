@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class Hatul : MonoBehaviour
 {
-    [SerializeField] private Transform _destination;
+    [SerializeField] private string endPosTag;
+    private Transform _destination;
     [SerializeField] private GameObject _hatulArmageddon;
     [SerializeField] private ChoonkType type;
     private NavMeshAgent _navMeshAgent;
     private bool isTargeted;
     void Start()
     {
+        _destination = GameObject.FindGameObjectWithTag(endPosTag).transform;
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         Vector3 targetVector = _destination.transform.position;
         _navMeshAgent.SetDestination(targetVector);

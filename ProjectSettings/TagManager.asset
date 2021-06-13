@@ -9,6 +9,7 @@ TagManager:
   - Mega
   - Armageddon
   - MegaCat
+  - EndPosition
   layers:
   - Default
   - TransparentFX

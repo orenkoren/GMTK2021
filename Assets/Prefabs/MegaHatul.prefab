@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f4926144c82e34fbab2343bcefa178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destination: {fileID: 5333299718174747855, guid: 44ef7b01a468dc44992eb9b09bed4417, type: 3}
+  endPosTag: EndPosition
   _hatulArmageddon: {fileID: 1421571145877563094, guid: 325e83d8f8482b14689d9e631d179a8f, type: 3}
   type: 0
 --- !u!114 &4698103747410681359
