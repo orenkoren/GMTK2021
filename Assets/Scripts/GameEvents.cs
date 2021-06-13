@@ -29,6 +29,10 @@ public class GameEvents : MonoBehaviour
     public static void FireWavePhased(object sender, string placeholder) =>
                                         WavePhasedListeners?.Invoke(sender, placeholder);
 
+    public static EventHandler<string> GrandmaPlacedListeners;
+    public static void FireGrandmaPlaced(object sender, string placeholder) =>
+                                        GrandmaPlacedListeners?.Invoke(sender, placeholder);
+
     public static GameObject FirstSelectedObject;
     public static GameObject SecondSelectedObject;
 

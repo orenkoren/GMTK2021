@@ -15,7 +15,8 @@ public class GrandmaIndicator : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Instantiate(grandma, transform.position, Quaternion.identity);
+            Instantiate(grandma, transform.position, grandma.transform.rotation);
+            GameEvents.FireGrandmaPlaced(this, "");
             Destroy(gameObject);
         }
     }

@@ -7,9 +7,9 @@ public class Hatul : MonoBehaviour
 {
     [SerializeField] private Transform _destination;
     [SerializeField] private GameObject _hatulArmageddon;
+    [SerializeField] private ChoonkType type;
     private NavMeshAgent _navMeshAgent;
     private bool isTargeted;
-    private ChoonkType type = ChoonkType.BIG;
     void Start()
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();

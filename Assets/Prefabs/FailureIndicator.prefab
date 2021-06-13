@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 44f8a848d6f83584eb7026a90b649fed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 639cb550945caf248ab7f2bf4b20f190, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -87,10 +87,9 @@ GameObject:
   - component: {fileID: 5355005348189373024}
   - component: {fileID: 5355005348189373025}
   - component: {fileID: 5355005348189373026}
-  - component: {fileID: 5355005348189373054}
   - component: {fileID: 6172080727007987151}
   m_Layer: 5
-  m_Name: GrandmaIndicator
+  m_Name: FailureIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,19 +176,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5355005348189373054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5355005348189373027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdfe4f865dba27c45af7dfcf1278a97d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grandma: {fileID: 8560773867498758177, guid: 795f33f1bc3d44845bdb3374519482d1, type: 3}
 --- !u!114 &6172080727007987151
 MonoBehaviour:
   m_ObjectHideFlags: 0
