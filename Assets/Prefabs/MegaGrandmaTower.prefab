@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2303178014460182965}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 515.83, y: 1.44, z: 174.65}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 2303178014929068478}
   m_Father: {fileID: 0}
@@ -64,10 +64,10 @@ MonoBehaviour:
   range: 50
   fireRate: 1
   maxTargets: 1
-  type: 1
+  type: 0
   turnSpeed: 10
   enemyTag: Enemy
-  bulletPrefab: {fileID: 415797755779897637, guid: 51e33249a913e4742b15cb601aa0dc08, type: 3}
+  bulletPrefab: {fileID: 415797755779897637, guid: c7678ad5bf31bc84a933a9edc6344fde, type: 3}
   firePoint: {fileID: 2303178015978415367}
 --- !u!114 &4462954895930892825
 MonoBehaviour:
@@ -140,7 +140,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 8eb698b46d118844593578dd0af61ff2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3888f3f7c156426409a8fbc50dcae8bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
