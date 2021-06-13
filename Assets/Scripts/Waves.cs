@@ -5,6 +5,7 @@ using UnityEngine;
 public class Waves : MonoBehaviour
 {
     public List<WaveData> waves;
+    public float spawnInterval;
     public int currentWave = 0;
     public float currentTimer = 0;
     public float countdownToNextWave;

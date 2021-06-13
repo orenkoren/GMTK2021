@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7497635283406833158}
   - component: {fileID: 7497635283406833159}
   - component: {fileID: 2053856903}
+  - component: {fileID: 137767688}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -123,3 +124,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingInventory: 1
   currentInventory: 0
+--- !u!114 &137767688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497635283406833181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36697660789c9540963dc2128ef0633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTags:
+  - Enemy
+  - Armageddon
+  grandmaTags:
+  - Grandma
+  - Mega
+  waveSpawner: {fileID: 0}
+  inventory: {fileID: 2053856903}

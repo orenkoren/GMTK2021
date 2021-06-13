@@ -50,9 +50,9 @@ public class HatulArmageddon : MonoBehaviour
         //{
         //    Destroy(minGrandma);
         //}
-        if (_navMeshAgent.remainingDistance > 0 &&  _navMeshAgent.remainingDistance < 0.01f)
+        var distToTarget = _navMeshAgent.destination - transform.position;
+        if (new Vector3(distToTarget.x, 0, distToTarget.z).magnitude < 20f)
         {
-            print(_navMeshAgent.remainingDistance);
             Destroy(minGrandma);
         }
         if (grandmas.Length == 0)

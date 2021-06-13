@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4462954895930892825}
   - component: {fileID: 8192941166348064198}
   - component: {fileID: 6348886308476966282}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MegaGrandmaTower
   m_TagString: Mega
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 2303178014929068475}
   - component: {fileID: 2303178014929068476}
   - component: {fileID: 2303178014929068477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2303178015978415367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

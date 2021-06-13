@@ -37,6 +37,14 @@ public class GameEvents : MonoBehaviour
     public static void FireLevelFinished(object sender, string placeholder) =>
                                         LevelFinishedListeners?.Invoke(sender, placeholder);
 
+    public static EventHandler<string> LevelFailedListeners;
+    public static void FireLevelFailed(object sender, string placeholder) =>
+                                        LevelFailedListeners?.Invoke(sender, placeholder);
+
+    public static EventHandler<string> CatSavedListeners;
+    public static void FireCatSaved(object sender, string placeholder) =>
+                                        CatSavedListeners?.Invoke(sender, placeholder);
+
     public static GameObject FirstSelectedObject;
     public static GameObject SecondSelectedObject;
 

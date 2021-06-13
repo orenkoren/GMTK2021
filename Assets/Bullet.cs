@@ -32,6 +32,7 @@ public class Bullet : MonoBehaviour
     }
 
     private void HitTarget() {
+        GameEvents.FireCatSaved(this, "");
         Destroy(target.gameObject);
         Destroy(gameObject);
     }
