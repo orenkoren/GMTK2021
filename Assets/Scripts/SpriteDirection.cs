@@ -7,11 +7,11 @@ using UnityEngine.AI;
 public class SpriteDirection : MonoBehaviour
 {
     NavMeshAgent navMeshAgent;
-    Image image;
+    SpriteRenderer sprite;
     void Start()
     {
         navMeshAgent = this.GetComponent<NavMeshAgent>();
-        image = GetComponentInChildren<Image>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -20,9 +20,14 @@ public class SpriteDirection : MonoBehaviour
         var dir = navMeshAgent.velocity.x;
         if (dir != 0)
         {
-            var org = image.rectTransform.localScale;
-            org.x = -dir / Mathf.Abs(dir);
-            image.rectTransform.localScale = org;
+            // var org = sprite.rectTransform.localScale;
+            // org.x = -dir / Mathf.Abs(dir);
+
+            if(dir < 0) {
+                sprite.flipX = true;
+            } else if(dir > 0) {
+                sprite.flipX = false;
+            }
         }
     }
 }
