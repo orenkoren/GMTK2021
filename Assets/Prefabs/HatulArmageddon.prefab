@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 4607386069251478524}
   m_Layer: 0
   m_Name: HatulArmageddon
-  m_TagString: Untagged
+  m_TagString: Armageddon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

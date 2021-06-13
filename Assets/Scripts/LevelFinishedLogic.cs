@@ -39,11 +39,11 @@ public class LevelFinishedLogic : MonoBehaviour
         }
         foreach (var tag in grandmaTags)
         {
-            if (GameObject.FindGameObjectsWithTag(tag).Length == 0)
+            if (GameObject.FindGameObjectsWithTag(tag).Length > 0)
             {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 }

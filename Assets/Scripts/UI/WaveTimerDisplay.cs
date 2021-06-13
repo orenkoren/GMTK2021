@@ -1,11 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveTimerDisplay : MonoBehaviour
 {
     public Waves waveSpawner;
-    public TextMeshProUGUI text;
-    public TextMeshProUGUI waveInfo;
+    public Text waveSeconds;
+    public Text regularCatAmount;
+    public Text megaCatAmount;
 
     private void Start()
     {
@@ -18,19 +20,19 @@ public class WaveTimerDisplay : MonoBehaviour
 
         if (waveSpawner.countdownToNextWave >= 0)
         {
-            text.text = ((int)waveSpawner.countdownToNextWave).ToString();
+            waveSeconds.text = ((int)waveSpawner.countdownToNextWave).ToString();
         }
     }
 
     private void UpdateWaveInfo(object sender, string e)
     {
-        waveInfo.text = "";
+        regularCatAmount.text = "";
+        megaCatAmount.text = "";
         if (waveSpawner.currentWave == waveSpawner.waves.Count)
             return;
-        foreach (var member in waveSpawner.waves[waveSpawner.currentWave].members)
-        {
-            waveInfo.text += member.amount + " " + member.attacker.name + " ";
-        }
+        var members = waveSpawner.waves[waveSpawner.currentWave].members;
+        regularCatAmount.text = members[0].amount.ToString();
+        megaCatAmount.text = members[1].amount.ToString();
     }
 
     private void OnDestroy()

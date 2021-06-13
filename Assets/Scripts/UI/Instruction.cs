@@ -8,6 +8,7 @@ public class Instruction : MonoBehaviour
     public float fadeTimer;
     private SpriteRenderer inst;
     private float startCounter = 0;
+    private bool hasTriggered = false;
 
     void Start()
     {
@@ -16,6 +17,12 @@ public class Instruction : MonoBehaviour
 
     private void Update()
     {
+        startCounter += Time.deltaTime;
+        if (!hasTriggered && startCounter > startAfterTime)
+        {
+            StartCoroutine(SpawnInstruction());
+            hasTriggered = true;
+        }
     }
 
     private IEnumerator SpawnInstruction()
