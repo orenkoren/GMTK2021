@@ -1,14 +1,15 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Waves : MonoBehaviour
 {
     public List<WaveData> waves;
-    public float spawnInterval;
     public int currentWave = 0;
     public float currentTimer = 0;
     public float countdownToNextWave;
+    public float timeBetweenSpawns;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class Waves : MonoBehaviour
             countdownToNextWave = waves[currentWave].intervalBeforeWave - currentTimer;
 
             if (currentTimer >= waves[currentWave].intervalBeforeWave)
-                SpawnNextWave();
+                StartCoroutine(SpawnNextWave());
         }
     }
 
@@ -32,21 +33,21 @@ public class Waves : MonoBehaviour
         return currentWave == waves.Count;
     }
 
-    private void SpawnNextWave()
+    private IEnumerator SpawnNextWave()
     {
         currentTimer = 0;
-        foreach (var member in waves[currentWave].members)
-        {
-            for (int i = 0; i < member.amount; i++)
-            {
-                var e = Instantiate(member.attacker, member.startPos.position, member.startPos.rotation);
-                //Destroy(e, 5);
-            }
-        }
+        var waveToSpawn = currentWave;
         if (currentWave < waves.Count)
             currentWave++;
         GameEvents.FireWaveStarted(this, "");
-
+        foreach (var member in waves[waveToSpawn].members)
+        {
+            for (int i = 0; i < member.amount; i++)
+            {
+                Instantiate(member.attacker, member.startPos.position, member.startPos.rotation);
+                yield return new WaitForSeconds(timeBetweenSpawns);
+            }
+        }
     }
 }
 

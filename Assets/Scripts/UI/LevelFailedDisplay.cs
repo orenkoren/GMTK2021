@@ -13,6 +13,17 @@ public class LevelFailedDisplay : MonoBehaviour
 
     private void EnableDisplay(object sender, string e)
     {
+        //StartCoroutine(EnableDisplay());
+        Invoke("SetActive", 2);
+    }
+
+    private IEnumerator EnableDisplay()
+    {
+        yield return new WaitForSeconds(2);
+    }
+
+    private void SetActive()
+    {
         gameObject.SetActive(true);
     }
 }

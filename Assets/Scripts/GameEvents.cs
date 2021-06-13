@@ -45,6 +45,10 @@ public class GameEvents : MonoBehaviour
     public static void FireCatSaved(object sender, string placeholder) =>
                                         CatSavedListeners?.Invoke(sender, placeholder);
 
+    public static EventHandler<string> MergeListeners;
+    public static void FireMerge(object sender, string placeholder) =>
+                                        MergeListeners?.Invoke(sender, placeholder);
+
     public static GameObject FirstSelectedObject;
     public static GameObject SecondSelectedObject;
 

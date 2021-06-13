@@ -57,13 +57,13 @@ MonoBehaviour:
     - attacker: {fileID: 2476805360224427469, guid: e08398520b6bcd240b01e2a5bb13b51f, type: 3}
       startPos: {fileID: 0}
       amount: 10
-    - attacker: {fileID: 2476805360224427469, guid: e08398520b6bcd240b01e2a5bb13b51f, type: 3}
+    - attacker: {fileID: 512321878828612498, guid: 0c6a0dca0db45bf41a29dd5cae009597, type: 3}
       startPos: {fileID: 0}
       amount: 5
-  spawnInterval: 0
   currentWave: 0
   currentTimer: 0
   countdownToNextWave: 0
+  timeBetweenSpawns: 0.2
 --- !u!114 &1077591641
 MonoBehaviour:
   m_ObjectHideFlags: 0
