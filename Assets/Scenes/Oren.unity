@@ -123,24 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 352cec784060c6649bf5f45e60f9cfcd, type: 2}
---- !u!1 &137767687 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7497635283406833181, guid: eecaa5272ac90354794d1cccbae3a162, type: 3}
+--- !u!114 &137767688 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2674666479935662056, guid: eecaa5272ac90354794d1cccbae3a162, type: 3}
   m_PrefabInstance: {fileID: 7497635281885939190}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &137767688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137767687}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b92f02b46364c3642856823a1e78d448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catsSaved: 0
 --- !u!1 &180978541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1436,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2053856903, guid: eecaa5272ac90354794d1cccbae3a162, type: 3}
   m_PrefabInstance: {fileID: 7497635281885939190}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137767687}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d042191572b4c641921a5a49841355a, type: 3}
@@ -1832,10 +1825,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6752680044912107330, guid: 8c6b7e78571db984ea6d36daa06648fb, type: 3}
-      propertyPath: waves.Array.data[1].intervalBeforeWave
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6752680044912107330, guid: 8c6b7e78571db984ea6d36daa06648fb, type: 3}
       propertyPath: waves.Array.data[0].members.Array.data[0].startPos
       value: 
       objectReference: {fileID: 1928118772}
@@ -1979,10 +1968,6 @@ PrefabInstance:
       propertyPath: waveSpawner
       value: 
       objectReference: {fileID: 847555753}
-    - target: {fileID: 2053856903, guid: eecaa5272ac90354794d1cccbae3a162, type: 3}
-      propertyPath: currentInventory
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7497635283406833158, guid: eecaa5272ac90354794d1cccbae3a162, type: 3}
       propertyPath: spanUpon
       value: 
