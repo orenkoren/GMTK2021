@@ -23,9 +23,9 @@ public class SpriteDirection : MonoBehaviour
             // var org = sprite.rectTransform.localScale;
             // org.x = -dir / Mathf.Abs(dir);
 
-            if(dir < 0) {
+            if(dir < 0 && sprite) {
                 sprite.flipX = true;
-            } else if(dir > 0) {
+            } else if(dir > 0 && sprite) {
                 sprite.flipX = false;
             }
         }
